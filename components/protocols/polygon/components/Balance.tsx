@@ -16,7 +16,7 @@ const Balance = () => {
   const {state, dispatch} = useGlobalState();
   const {address} = getInnerState(state);
 
-  const [balance, setBalance] = useState<number | null>(0);
+  const [balance, setBalance] = useState<number | string | null>(0);
   const [error, setError] = useState<string | undefined>(undefined);
   const [fetching, setFetching] = useState<boolean>(false);
 
@@ -33,15 +33,12 @@ const Balance = () => {
     setError(undefined);
     setBalance(null);
     const {error, balance} = await getBalance(address);
+
     if (error) {
       setError(error);
-    } else {
-      setBalance(
-        parseFloat(
-          ((parseFloat(balance as string) / DECIMAL_OFFSET) * 100).toFixed(),
-        ) / 100,
-      );
     }
+    if (balance) setBalance(balance);
+
     setFetching(false);
   };
 
