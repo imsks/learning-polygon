@@ -23,12 +23,12 @@ module.exports = {
   networks: {
     development: {
       host: '127.0.0.1',
-      port: 8545,
+      port: 9545,
       network_id: '*',
     },
     test: {
       host: '127.0.0.1',
-      port: 8545,
+      port: 9545,
       network_id: '*',
     },
     matic: {
@@ -41,7 +41,7 @@ module.exports = {
           //   phrase: mnemonic,
           // },
           privateKeys: [privateKey],
-          providerOrUrl: `https://matic-mumbai.chainstacklabs.com`,
+          providerOrUrl: `wss://rpc-mumbai.maticvigil.com/ws/v1/1a8b41b7dca7e8d6e2dcfeaddc6c2fd69027174f`,
           chainId: 80001,
         }),
       network_id: 80001,
@@ -49,6 +49,7 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true,
       chainId: 80001,
+      networkCheckTimeout: 1000000,
     },
   },
 };
