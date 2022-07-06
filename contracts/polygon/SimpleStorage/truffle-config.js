@@ -9,15 +9,15 @@ module.exports = {
   // for more details on how to specify configuration options!
   compilers: {
     solc: {
-      version: '0.8.0',
-      parser: 'solcjs', // Leverages solc-js purely for speedy parsing
-      settings: {
-        optimizer: {
-          enabled: true,
-          runs: 200, // Optimize for how many times you intend to run the code
-        },
-        evmVersion: 'istanbul', // Default: "istanbul"
-      },
+      // version: '0.8.0',
+      // parser: 'solcjs', // Leverages solc-js purely for speedy parsing
+      // settings: {
+      //   optimizer: {
+      //     enabled: true,
+      //     runs: 200, // Optimize for how many times you intend to run the code
+      //   },
+      //   evmVersion: 'istanbul', // Default: "istanbul"
+      // },
     },
   },
   networks: {
@@ -34,14 +34,8 @@ module.exports = {
     matic: {
       provider: () =>
         new HDWalletProvider({
-          // As per the documentation at https://github.com/trufflesuite/truffle/tree/develop/packages/hdwallet-provider#general-usage
-          // "If both mnemonic and private keys are provided, the mnemonic is used."
-          // Therefore, uncomment the following lines to use a mnemonic instead of a private key:
-          // mnemonic: {
-          //   phrase: mnemonic,
-          // },
           privateKeys: [privateKey],
-          providerOrUrl: `wss://rpc-mumbai.maticvigil.com/ws/v1/1a8b41b7dca7e8d6e2dcfeaddc6c2fd69027174f`,
+          providerOrUrl: `https://rpc-mumbai.maticvigil.com`,
           chainId: 80001,
         }),
       network_id: 80001,

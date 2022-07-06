@@ -2,17 +2,17 @@
 pragma solidity ^0.8.0;
 
 contract SimpleStorage {
-    uint storedData;
+    uint256 storedData;
 
     constructor() {
-  		  storedData = 0;
-  	}
+        storedData = 0;
+    }
 
-    function set(uint x) public {
+    function set(uint256 x) public {
         storedData = x;
     }
 
-    function get() public view returns (uint) {
+    function get() public view returns (uint256) {
         return storedData;
     }
 }
